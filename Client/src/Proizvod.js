@@ -65,7 +65,7 @@ export class Proizvod {
         let nazivStavke = document.createElement("span");
         nazivStavke.innerHTML = this.naziv;
         if (saKontrolama) {
-            nazivStavke.addEventListener("click", () => proizvod.prikaziDetalje());
+            nazivStavke.addEventListener("click", () => this.prikaziDetalje());
             stavkaListe.title = "Kliknite na naziv proizvoda za detalje";
         }
         stavkaListe.appendChild(nazivStavke);
