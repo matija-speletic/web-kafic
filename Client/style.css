@@ -1,0 +1,651 @@
+@import url("https://fonts.googleapis.com/css2?family=Manrope:wght@200;300;400;500;600;700;800&display=swap");
+
+* {
+  font-family: "Manrope", sans-serif;
+  color: white;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #111927;
+  background-image: #940000;
+  background-image: radial-gradient(
+      at 54% 0%,
+      hsla(169, 95%, 34%, 1) 0,
+      transparent 50%
+    ),
+    radial-gradient(at 32% 60%, hsla(238, 65%, 26%, 1) 0, transparent 50%),
+    radial-gradient(at 80% 0%, hsla(190, 100%, 31%, 1) 0, transparent 50%),
+    radial-gradient(at 67% 92%, hsla(242, 56%, 64%, 1) 0, transparent 50%),
+    radial-gradient(at 8% 82%, hsla(144, 65%, 23%, 1) 0, transparent 50%),
+    radial-gradient(at 79% 57%, hsla(296, 56%, 64%, 1) 0, transparent 50%),
+    radial-gradient(at 0% 0%, hsla(281, 100%, 50%, 1) 0, transparent 100%);
+  background-size: cover;
+  background-position: top center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  width: 100vw;
+  overflow-x: hidden;
+}
+
+/*body {
+  background: linear-gradient(0deg, #20cca0, #203acc, #7b00ac);
+  background-size: 600% 600%;
+
+  -webkit-animation: AnimacijaPozadine 40s ease infinite;
+  -moz-animation: AnimacijaPozadine 40s ease infinite;
+  animation: AnimacijaPozadine 40s ease infinite;
+}
+
+@-webkit-keyframes AnimacijaPozadine {
+  0% {
+    background-position: 79% 0%;
+  }
+  50% {
+    background-position: 22% 100%;
+  }
+  100% {
+    background-position: 79% 0%;
+  }
+}
+@-moz-keyframes AnimacijaPozadine {
+  0% {
+    background-position: 79% 0%;
+  }
+  50% {
+    background-position: 22% 100%;
+  }
+  100% {
+    background-position: 79% 0%;
+  }
+}
+@keyframes AnimacijaPozadine {
+  0% {
+    background-position: 79% 0%;
+  }
+  50% {
+    background-position: 22% 100%;
+  }
+  100% {
+    background-position: 79% 0%;
+  }
+}*/
+
+.card {
+  background-color: rgba(17, 25, 40, 0.77);
+  border-radius: 30px;
+  border: none;
+  box-shadow: 0px 0px 35px rgba(0, 0, 0, 0.75);
+  padding: 15px 0px 20px 0px;
+  size: cover;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  max-height: 93vh;
+  width: 95vw;
+}
+
+@media screen and (max-width: 1080px) {
+  .card {
+    flex-direction: column;
+    max-height: none;
+    max-width: 88vw;
+    margin-top: 30px;
+    margin-bottom: 30px;
+    padding: 15px 30px 20px 30px;
+  }
+  .okvir_liste {
+    height: 50vh;
+    width: 83vw;
+  }
+
+  .lista_proizvoda {
+    width: 83vw;
+    height: 100%;
+  }
+
+  .stavka_menija {
+    height: 100px;
+    font-size: 30px;
+  }
+
+  .dodaj_proizvod,
+  .ukloni_proizvod {
+    font-size: 50px;
+    height: 70px;
+    width: 70px;
+  }
+
+  h2,
+  .ukupno,
+  .okvir_kategorije {
+    font-size: 40px;
+  }
+
+  .dugme,
+  .glavno_dugme {
+    font-size: 40px;
+    height: 7vw;
+  }
+
+  .proizvod_forma {
+    height: 98vw;
+    font-size: 2.5vw;
+    gap: 2vw;
+    overflow-y: hidden;
+    padding-top: 3vw;
+  }
+
+  .proizvod_forma .input_box {
+    height: 7vw;
+  }
+}
+
+@media screen and (min-width: 1080px) {
+  .lista_proizvoda {
+    height: 92%;
+  }
+
+  .okvir_liste {
+    width: 40vw;
+    height: 83vh;
+  }
+
+  .dodaj_proizvod,
+  .ukloni_proizvod {
+    font-size: large;
+    width: 30px;
+    height: 30px;
+  }
+
+  h2,
+  .ukupno,
+  .okvir_kategorije {
+    font-size: 30px;
+  }
+
+  .kategorija {
+    font-size: medium;
+  }
+
+  .proizvod_forma {
+    width: 45vw;
+    padding-top: 3vw;
+  }
+
+  .dugme,
+  .glavno_dugme {
+    font-size: 1.2vw;
+    height: 3vw;
+  }
+
+  .proizvod_forma .input_box {
+    height: 6vh;
+  }
+}
+
+.narudzbina_forma .okvir_liste {
+  height: 30vh;
+}
+
+.okvir_liste {
+  border-radius: 30px;
+}
+
+.lista_proizvoda::-webkit-scrollbar {
+  width: 10px;
+}
+
+body::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.5);
+  border-radius: 50px;
+}
+
+body::-webkit-scrollbar {
+  width: 15px;
+}
+
+.lista_proizvoda::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.5);
+  border-radius: 50px;
+}
+
+.lista_proizvoda {
+  overflow-y: scroll;
+}
+
+.stavka_menija {
+  border: 1px solid rgba(255, 255, 255, 0);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  margin-right: 3%;
+  padding: 2% 2% 2% 2%;
+  border-radius: 30px;
+}
+
+.stavka_menija .cena {
+  float: right;
+  margin-right: 20px;
+}
+.stavka_menija:hover {
+  background-color: rgba(0, 0, 0, 0.35);
+  transition: 0.3s;
+}
+
+.dodaj_proizvod,
+.ukloni_proizvod {
+  background-color: rgba(0, 0, 0, 0.4);
+  border-radius: 50%;
+  padding: 0;
+  border: solid 1px rgba(0, 0, 0, 0);
+  margin-right: 20px;
+
+  font-family: "Consolas";
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.dodaj_proizvod {
+  float: right;
+  margin-right: 0px;
+}
+
+.dodaj_proizvod:hover {
+  color: white;
+  background-color: rgba(0, 148, 0, 0.7);
+}
+
+.ukloni_proizvod:hover {
+  color: white;
+  background-color: rgba(204, 0, 0, 0.7);
+}
+
+.kategorija {
+  min-height: fit-content;
+  font-size: smaller;
+  padding-top: 3px;
+  padding-bottom: 3px;
+  width: 90%;
+}
+
+.okvir_kategorije {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  width: 100%;
+  justify-content: space-evenly;
+  font-weight: 700;
+  margin-top: 2vh;
+}
+
+.input_box {
+  width: 100%;
+  max-width: 280px;
+  padding: 5px 15px;
+  border: none;
+  background-color: rgba(0, 0, 0, 0.5);
+  border-radius: 30px;
+  box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.3);
+  font-weight: 700;
+  font-family: "Manrope", sans-serif;
+  transition: 0.2s ease-out;
+}
+
+.input_box:focus,
+.input_box:hover {
+  background-color: rgba(0, 0, 0, 0.7);
+}
+
+.narudzbina_forma {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 30px;
+  padding-bottom: 1vh;
+}
+
+.ukupno,
+.okvir_dugmica {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 30px 20px;
+  width: 100%;
+  gap: 1.5vw;
+}
+
+.dodatno_uputstvo {
+  width: 100%;
+  height: 25vh;
+  max-width: none;
+  padding: 12px 20px;
+  resize: none;
+}
+
+.dugme,
+.glavno_dugme {
+  width: 45%;
+  min-width: fit-content;
+  border-radius: 30px;
+  border: none;
+  cursor: pointer;
+  font-weight: 700;
+  box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.3);
+  transition: 0.2s;
+  font-family: "Manrope", sans-serif;
+}
+
+.dugme:hover,
+.glavno_dugme:hover {
+  color: white;
+  background-color: rgba(0, 0, 0, 0.7);
+}
+
+.dugme_brisanje:hover {
+  color: white;
+  background-color: rgb(177, 0, 0);
+}
+
+.glavno_dugme {
+  color: white;
+  background-color: #1a7199;
+}
+
+.dugme {
+  color: white;
+  background-color: rgba(0, 0, 0, 0.3);
+}
+
+.ukupan_iznos,
+.konobar_nadimak {
+  font-weight: bold;
+}
+
+.proizvod_forma {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.proizvod_forma .okvir_dugmica {
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.proizvod_forma .input_box {
+  width: 100%;
+  max-width: none;
+  margin-top: 10px;
+  font-size: large;
+}
+
+.proizvod_forma .kolicina {
+  display: flex;
+  flex-direction: row;
+  gap: 1vw;
+}
+
+.proizvod_forma .kolicina_input {
+  width: 700%;
+  text-align: right;
+}
+
+#cena_proizvoda {
+  text-align: right;
+}
+
+.okvir_dugmica {
+  justify-content: center;
+}
+
+.proizvod_forma .dodatno_uputstvo {
+  height: 10vw;
+}
+
+.stavka_menija span {
+  cursor: default;
+}
+
+.card2 {
+  margin-top: 15px;
+  margin-bottom: 15px;
+  justify-content: space-between;
+}
+
+.dugme_sto {
+  border-radius: 50%;
+  border: none;
+  background-color: rgba(0, 0, 0, 0.7);
+  font-size: small;
+  cursor: pointer;
+}
+
+td {
+  padding: 10px;
+}
+
+@media screen and (max-width: 1080px) {
+  .card2 {
+    flex-direction: column;
+    max-height: none;
+  }
+
+  .okvir_forme_kafica {
+    height: 100vh;
+    max-height: 1700px;
+  }
+
+  .tabela_stolova {
+    height: 70vh;
+    width: 70vh;
+  }
+
+  .okvir_tabele {
+    overflow-x: scroll;
+  }
+
+  .dugme_sto {
+    height: 100%;
+    width: 100%;
+    font-size: 200%;
+  }
+}
+
+@media screen and (min-width: 1080px) {
+  .tabela_stolova {
+    height: 88vh;
+    width: 100%;
+  }
+  .dugme_sto {
+    height: 100%;
+    width: 100%;
+    font-size: 150%;
+  }
+
+  .okvir_tabele {
+    margin-right: 15px;
+    width: 100%;
+  }
+}
+
+.tabela_stolova {
+  border-radius: 40px;
+  background-image: url("./slika.jpg");
+  background-repeat: repeat;
+  opacity: 0.9;
+}
+
+.slobodan_sto {
+  background-color: rgba(0, 90, 0, 1);
+}
+
+.zauzet_sto {
+  background-color: rgba(90, 0, 0, 1);
+}
+
+.okvir_liste_novi {
+  width: 35vw;
+  height: 40%;
+}
+
+.okvir_forme_kafica {
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+}
+
+.naslov_kafic {
+  margin-left: 20px;
+}
+
+.napojnica {
+  display: flex;
+  justify-content: space-between;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+.uputstvo_labela {
+  height: 20%;
+}
+
+.okvir_forme_kafica .okvir_dugmica,
+.okvir_forme_kafica .ukupno {
+  padding: 10px;
+}
+
+@media screen and (max-width: 1080px) {
+  .okvir_kafica {
+    width: 100%;
+  }
+
+  .okvir_statistike {
+    flex-direction: column;
+  }
+
+  .statistika_header {
+    font-size: 20px;
+  }
+}
+
+@media screen and (min-width: 1080px) {
+  .okvir_kafica {
+    width: 55%;
+  }
+
+  .statistika_header {
+    font-size: 20px;
+  }
+
+  input[type="radio"] {
+    height: 15px;
+    width: 15px;
+  }
+}
+
+.statistika_header {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.okvir_radio {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  align-items: center;
+  padding-right: 20px;
+  flex-grow: 10;
+  margin-top: 2vh;
+}
+
+.okvir_datuma {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  padding-top: 30px;
+}
+
+input[type="checkbox"] {
+  margin-right: 10px;
+}
+
+.kafic {
+  width: 70%;
+  font-size: x-large;
+}
+
+.okvir_kafica {
+  font-size: 25px;
+}
+
+.okvir_statistike {
+  width: 100%;
+  display: flex;
+}
+
+.grafik_statistika {
+  width: 100%;
+  height: 100%;
+  padding: 20px;
+  display: flex;
+  justify-content: space-around;
+}
+
+.card_statistika {
+  flex-direction: column;
+  height: 90vh;
+}
+
+.grafik_konobara {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 100%;
+  max-height: 65vh;
+  justify-content: flex-end;
+}
+
+.stubic {
+  background-color: #3d2cae;
+  width: 40px;
+  height: 10%;
+  writing-mode: vertical-rl;
+  text-orientation: sideways;
+  transition: 0.5s;
+  border-radius: 20px;
+  padding: 10px;
+  overflow: hidden;
+}
+
+.okvir_stubica {
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+  align-items: flex-end;
+}
+
+.naziv_kafica {
+  writing-mode: vertical-lr;
+  padding-right: 10px;
+  font-size: large;
+}
+
+.card_pocetni {
+  flex-direction: column;
+  align-items: center;
+  width: 500px;
+}
+
+.card_pocetni button {
+  width: 350px;
+}
+
+.card_pocetni h1 {
+  margin-bottom: 30px;
+}
