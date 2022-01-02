@@ -35,13 +35,7 @@ export class Sto {
                 if (!this.slobodan)
                     this.ucitajNarudzbinu(lista);
                 else {
-                    lista.container.querySelector(".ukupno .ukupan_iznos").innerHTML = "0.00";
-                    lista.container.querySelector(".napojnica .ukupan_iznos").innerHTML = "0.00";
-                    kafic.listaNarucenih.isprazniListu();
-                    lista.container.querySelector(".lista_proizvoda").innerHTML = "Sto je slobodan...";
-                    lista.container.querySelector(".uputstvo_labela").innerHTML = "Uputstvo: ";
-                    lista.container.querySelector(".konobar_nadimak").innerHTML = "";
-                    kafic.selektovanaNarudzbinaID = -1;
+                    this.kafic.ocistiKontrole();
                 }
 
                 this.kafic.selektovaniSto = this;
@@ -79,5 +73,18 @@ export class Sto {
                 })
             }
         })
+    }
+
+    promeniStanje() {
+        let dugme = this.container.querySelector("button");
+        if (this.slobodan) {
+            dugme.classList.remove("slobodan_sto");
+            dugme.classList.add("zauzet_sto");
+        }
+        else {
+            dugme.classList.remove("zauzet_sto");
+            dugme.classList.add("slobodan_sto");
+        }
+        this.slobodan = !this.slobodan;
     }
 }

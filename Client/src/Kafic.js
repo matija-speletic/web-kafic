@@ -178,7 +178,9 @@ export class Kafic {
         }).then(s => {
             if (s.ok) {
                 alert("Narudzbina uspesno izvrsena!");
-                window.location.reload();
+                //window.location.reload();
+                this.selektovaniSto.promeniStanje();
+                this.ocistiKontrole();
             }
             else
                 alert("Doslo je do greske!");
@@ -195,7 +197,9 @@ export class Kafic {
         }).then(s => {
             if (s.ok) {
                 alert("Narudzbina uspesno obrisana!");
-                window.location.reload();
+                //window.location.reload();
+                this.selektovaniSto.promeniStanje();
+                this.ocistiKontrole();
             }
             else
                 alert("Doslo je do greske!");
@@ -214,6 +218,14 @@ export class Kafic {
         window.open(stranicaZaDodavanje, '_blank').focus();
     }
 
-    
+    ocistiKontrole() {
+        this.container.querySelector(".ukupno .ukupan_iznos").innerHTML = "0.00";
+        this.container.querySelector(".napojnica .ukupan_iznos").innerHTML = "0.00";
+        this.listaNarucenih.isprazniListu();
+        this.container.querySelector(".lista_proizvoda").innerHTML = "Sto je slobodan...";
+        this.container.querySelector(".uputstvo_labela").innerHTML = "Uputstvo: ";
+        this.container.querySelector(".konobar_nadimak").innerHTML = "";
+        this.selektovanaNarudzbinaID = -1;
+    }
 
 }
