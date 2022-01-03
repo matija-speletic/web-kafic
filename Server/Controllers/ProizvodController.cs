@@ -189,5 +189,25 @@ namespace KaficServer.Controllers
             }
         }
 
+        [Route("PreuzmiJedinice")]
+        [HttpGet]
+        public async Task<ActionResult> PreuzmiJedinice()
+        {
+            try
+            {
+                return (Ok(
+                    await Context.Proizvodi
+                    .Select(p => p.Jedinica)
+                    .Distinct()
+                    .Where(p => p != null)
+                    .ToListAsync()
+                ));
+            }
+            catch (Exception e)
+            {
+                return BadRequest("Doslo je do greske: " + e.Message);
+            }
+        }
+
     }
 }

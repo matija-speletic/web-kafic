@@ -125,19 +125,29 @@ export class ProizvodForma {
     }
 
     crtajSelectZaJedinicu(spanZaKolicinu) {
-        const jedinice = ["gr", "kom", "l", "ml"];
+        //const jedinice = ["gr", "kom", "l", "ml"];
 
         let poljeZaJedinicu = document.createElement("select");
         poljeZaJedinicu.classList.add("input_box");
         poljeZaJedinicu.classList.add("jedinica_input");
         spanZaKolicinu.appendChild(poljeZaJedinicu);
 
-        let jedinicaOption
-        jedinice.forEach(jed => {
-            jedinicaOption = document.createElement("option");
-            jedinicaOption.innerHTML = jed;
-            poljeZaJedinicu.appendChild(jedinicaOption);
-        });
+        fetch("https://localhost:5001/Proizvod/PreuzmiJedinice", {
+            method: "GET"
+        }).then(s => {
+            if (s.ok) {
+                s.json().then(jedinice => {
+                    let jedinicaOption;
+                    //console.log(jedinice);
+                    jedinice.forEach(jed => {
+                        jedinicaOption = document.createElement("option");
+                        jedinicaOption.innerHTML = jed;
+                        poljeZaJedinicu.appendChild(jedinicaOption);
+                    });
+                })
+            }
+        })
+
 
     }
 
