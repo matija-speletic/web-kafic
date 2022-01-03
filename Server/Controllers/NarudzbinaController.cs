@@ -20,7 +20,7 @@ namespace KaficServer.Controllers
             Context = context;
         }
 
-        
+
 
         [Route("DodajNapojnicu/{idNarudzbine}/{napojnica}")]
         [HttpPut]
@@ -48,9 +48,9 @@ namespace KaficServer.Controllers
             }
         }
 
-        
 
-        
+
+
 
         [Route("DodajNarudzbinu/{nazivKafica}/{xStola}/{yStola}")]
         [HttpPost]
@@ -215,7 +215,7 @@ namespace KaficServer.Controllers
                             Konobar = new
                             {
                                 ID = p.Konobar.ID,
-                                PunoIme = p.Konobar.Ime + " " + p.Konobar.Prezime
+                                Nadimak = p.Konobar.Nadimak
                             },
                             StoID = p.Sto.ID,
                             Proizvodi = p.NarudzbinaProizvod

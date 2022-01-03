@@ -65,7 +65,9 @@ export class Sto {
                     lista.container.querySelector(".napojnica .ukupan_iznos").innerHTML = narudzbina.napojnica + ".00";
                     lista.container.querySelector(".uputstvo_labela").innerHTML = "Uputstvo: "
                         + (narudzbina.dodatnoUputstvo != null ? narudzbina.dodatnoUputstvo : "");
-                    lista.container.querySelector(".konobar_nadimak").innerHTML = narudzbina.konobar.punoIme;
+                    let konobarSelect = lista.container.querySelector(".konobar_nadimak");
+                    konobarSelect.value = narudzbina.konobar.nadimak;
+                    konobarSelect.disabled = true;
 
                     this.kafic.selektovanaNarudzbinaID = narudzbina.id;
                     this.kafic.selektovaniStoID = this.id;

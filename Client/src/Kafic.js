@@ -79,10 +79,12 @@ export class Kafic {
         konobarSpan.innerHTML = "Konobar:";
         divZaKonobara.appendChild(konobarSpan);
 
-        let nadimakKonobra = document.createElement("span");
-        nadimakKonobra.innerHTML = "";
-        nadimakKonobra.className = "konobar_nadimak";
-        divZaKonobara.appendChild(nadimakKonobra);
+        let konobarSelect = document.createElement("select");
+        //konobarSelect.innerHTML = "";
+        konobarSelect.className = "input_box";
+        konobarSelect.classList.add("konobar_nadimak");
+        divZaKonobara.appendChild(konobarSelect);
+        this.ucitajKonobare(konobarSelect);
 
         this.crtajKontrole(divZaFormu);
 
@@ -211,9 +213,11 @@ export class Kafic {
             alert("Morate izabrati slobodan sto");
             return;
         }
-        let nadimakKonobara = prompt("Unesite nadimak", "Nadimak konobara...");
+        let nadimakKonobara = this.container.querySelector(".konobar_nadimak").value;
         let stranicaZaDodavanje = "http://127.0.0.1:5500/Client/orderPage.html?nazivKafica=" + this.naziv + "&x="
-            + this.selektovaniSto.x + "&y=" + this.selektovaniSto.y + "&nadimakKonobara=" + nadimakKonobara;
+            + this.selektovaniSto.x + "&y=" + this.selektovaniSto.y;
+        if (nadimakKonobara !== "")
+            stranicaZaDodavanje += "&nadimakKonobara=" + nadimakKonobara;
         stranicaZaDodavanje = encodeURI(stranicaZaDodavanje);
         window.open(stranicaZaDodavanje, '_blank').focus();
     }
@@ -224,8 +228,32 @@ export class Kafic {
         this.listaNarucenih.isprazniListu();
         this.container.querySelector(".lista_proizvoda").innerHTML = "Sto je slobodan...";
         this.container.querySelector(".uputstvo_labela").innerHTML = "Uputstvo: ";
-        this.container.querySelector(".konobar_nadimak").innerHTML = "";
+        let konobarSelect = this.container.querySelector(".konobar_nadimak");
+        konobarSelect.value = "";
+        konobarSelect.disabled = false;
         this.selektovanaNarudzbinaID = -1;
+    }
+
+    ucitajKonobare(konobarSelect) {
+        fetch("https://localhost:5001/Konobar/PreuzmiKonobare/" + this.id, {
+            method: "GET"
+        }).then(s => {
+            if (s.ok) {
+                s.json().then(konobari => {
+                    konobari.forEach(konobar => {
+                        let konobarOption = document.createElement("option");
+                        konobarOption.innerHTML = konobar.ime + " " + konobar.prezime;
+                        konobarOption.value = konobar.nadimak;
+                        konobarSelect.appendChild(konobarOption);
+                    });
+                    konobarSelect.value = "";
+                    konobarSelect.disabled = true;
+                })
+            }
+            else {
+                alert("Doslo je do greske!");
+            }
+        })
     }
 
 }

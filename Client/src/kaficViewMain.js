@@ -7,7 +7,7 @@ fetch("https://localhost:5001/Kafic/PreuzmiKafice", {
 }).then(s => {
     if (s.ok) {
         s.json().then(data => {
-            data.forEach(kafic => {
+            data.reverse().forEach(kafic => {
                 let noviKafic = new Kafic(kafic.id, kafic.naziv, kafic.adresa, kafic.dimenzijaX, kafic.dimenzijaY);
                 listaKafica.push(noviKafic);
                 noviKafic.crtajKafic(document.body);

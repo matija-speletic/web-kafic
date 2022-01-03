@@ -20,6 +20,31 @@ namespace KaficServer.Controllers
             Context = context;
         }
 
+        [Route("PreuzmiKonobare/{idKafica}")]
+        [HttpGet]
+        public async Task<ActionResult> PreuzmiKonobare(int idKafica)
+        {
+            try
+            {
+                return (Ok(
+                    await Context.Konobari
+                    .Where(k => k.Kafic.ID == idKafica)
+                    .Select(k =>
+                        new
+                        {
+                            Ime = k.Ime,
+                            Prezime = k.Prezime,
+                            Nadimak = k.Nadimak
+                        }
+                    ).ToListAsync()
+                ));
+            }
+            catch (Exception e)
+            {
+                return BadRequest("Doslo je do greske: " + e.Message);
+            }
+        }
+
         [Route("PreuzmiStatistikuKonobara/{idKafica}/{datum}")]
         [HttpGet]//eventualno izdvoji vo u zaseban controller
         public async Task<ActionResult> PreuzmiStatistiku(int idKafica, DateTime datum)
@@ -61,7 +86,7 @@ namespace KaficServer.Controllers
                     }
 
                 )
-                .Where(p=>p.Konobar.Kafic.ID==idKafica)
+                .Where(p => p.Konobar.Kafic.ID == idKafica)
                 .GroupBy(p =>
                     new
                     {

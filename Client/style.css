@@ -649,3 +649,7 @@ input[type="checkbox"] {
 .card_pocetni h1 {
   margin-bottom: 30px;
 }
+
+.konobar_nadimak {
+  font-size: large;
+}
