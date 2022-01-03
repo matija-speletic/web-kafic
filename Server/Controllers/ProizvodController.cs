@@ -43,7 +43,7 @@ namespace KaficServer.Controllers
             }
         }
 
-        
+
 
         [Route("DodajProizvod")]
         [HttpPost]
@@ -86,7 +86,7 @@ namespace KaficServer.Controllers
                 };
                 Context.Proizvodi.Add(proizvod);
                 await Context.SaveChangesAsync();
-                return Ok($"Proizvod {naziv} je uspesno dodat");
+                return Ok(proizvod.ID);
             }
             catch (Exception e)
             {
@@ -140,7 +140,7 @@ namespace KaficServer.Controllers
             try
             {
                 var proizvod = await Context.Proizvodi.FindAsync(idProizvoda);
-                if(proizvod==null)
+                if (proizvod == null)
                     return BadRequest("Proizvod sa ovim ID ne postoji");
                 string naziv = new string(proizvod.Naziv);
                 Context.Proizvodi.Remove(proizvod);

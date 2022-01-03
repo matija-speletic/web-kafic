@@ -8,6 +8,7 @@ export class Proizvod {
         this.jedinica = jedinica;
         this.brojIzabranih = brojIzabranih;
         this.opis = opis;
+        this.container = null;
     }
 
     uvecajBrojIzabranih(broj = 1) {
@@ -29,6 +30,7 @@ export class Proizvod {
     prikaziProizvod(saKontrolama = true, naKlik = undefined, lista) {
         let stavkaListe = document.createElement("li");
         stavkaListe.className = "stavka_menija";
+        this.container = stavkaListe;
 
         if (!saKontrolama)
             stavkaListe.addEventListener("click", () => {

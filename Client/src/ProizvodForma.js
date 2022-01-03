@@ -1,4 +1,5 @@
 import { ListaProizvoda } from "./ListaProizvoda.js";
+import { Proizvod } from "./Proizvod.js";
 
 export class ProizvodForma {
     constructor() {
@@ -186,7 +187,11 @@ export class ProizvodForma {
             .then(s => {
                 if (s.ok) {
                     alert("Proizvod je uspesno dodat!");
-                    window.location.reload();
+                    s.json().then(idDodatog => {
+                        let noviProizvod = new Proizvod(idDodatog, naziv, parseInt(cena), kategorijaID, kolicina, jedinica, 0, opis);
+                        //console.log(this.listaProizvoda)
+                        noviProizvod.prikaziProizvod(false, this.prikaziProizvod, this.listaProizvoda);
+                    })
                 }
                 else
                     alert("Doslo je do greske!");
@@ -224,7 +229,11 @@ export class ProizvodForma {
             }).then(s => {
                 if (s.ok) {
                     alert("Proizvod uspesno izmenjen!");
-                    window.location.reload();
+                    //window.location.reload();
+                    //isprazniListu i prikaziProizvode
+                    this.listaProizvoda.isprazniListu();
+                    this.listaProizvoda.ucitajProizvode(kategorijaID, false, this.prikaziProizvod);
+                    this.container.querySelector('.kategorija').value = kategorijaID;
                 }
                 else
                     alert("Doslo je do greske!");
@@ -240,7 +249,10 @@ export class ProizvodForma {
         }).then(s => {
             if (s.ok) {
                 alert("Proizvod je uspesno obrisan!");
-                window.location.reload();
+                //window.location.reload();
+                let proizvod = this.listaProizvoda.proizvodi
+                    .find(p => p.id == idProizvoda);
+                this.listaProizvoda.listaContainer.removeChild(proizvod.container);
             }
             else
                 alert("Doslo je do greske prilikom brisanja!");
