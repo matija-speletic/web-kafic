@@ -598,6 +598,7 @@ input[type="checkbox"] {
   justify-content: space-around;
   flex-wrap: wrap;
   gap: 25px;
+  min-height: 73vh;
 }
 
 .card_statistika {
