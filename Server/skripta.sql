@@ -210,3 +210,157 @@ VALUES ('Patatas bravas',330,300,'gr','',6);
 
 INSERT INTO [Kafic].[dbo].[Proizvodi]([Naziv],[Cena],[Kolicina],[Jedinica],[Opis],[KategorijaID])
 VALUES ('Onion rings',330,10,'kom','',6);
+
+INSERT INTO [Kafic].[dbo].[Proizvodi]([Naziv]) VALUES ('Topli napici');
+
+INSERT INTO [Kafic].[dbo].[Proizvodi]([Naziv]) VALUES ('Hladni napici');
+
+INSERT INTO [Kafic].[dbo].[Proizvodi]([Naziv]) VALUES ('Glavna jela');
+
+INSERT INTO [Kafic].[dbo].[Proizvodi]([Naziv]) VALUES ('Salate');
+
+INSERT INTO [Kafic].[dbo].[Proizvodi]([Naziv]) VALUES ('Prilozi');
+
+INSERT INTO [Kafic].[dbo].[Proizvodi]([Naziv]) VALUES ('Kokteli');
+
+INSERT INTO [Kafic].[dbo].[Proizvodi]([Naziv]) VALUES ('Bezalkoholni kokteli');
+
+INSERT INTO [Kafic].[dbo].[Proizvodi]([Naziv]) VALUES ('Sokovi');
+
+INSERT INTO [Kafic].[dbo].[Proizvodi]([Naziv]) VALUES ('Vode');
+
+INSERT INTO [Kafic].[dbo].[Proizvodi]([Naziv]) VALUES ('Kafe');
+
+INSERT INTO [Kafic].[dbo].[Proizvodi]([Naziv]) VALUES ('Zestoka pica');
+
+INSERT INTO [Kafic].[dbo].[Proizvodi]([Naziv]) VALUES ('Vina');
+
+INSERT INTO [Kafic].[dbo].[Stolovi]([BrojOsoba],[DozvoljenoPusenje],[KaficID],[PozicijaX],[PozicijaY],[Slobodan]) 
+VALUES (4,1,1,0,0,1);
+
+INSERT INTO [Kafic].[dbo].[Stolovi]([BrojOsoba],[DozvoljenoPusenje],[KaficID],[PozicijaX],[PozicijaY],[Slobodan]) 
+VALUES (4,1,1,0,2,1);
+
+INSERT INTO [Kafic].[dbo].[Stolovi]([BrojOsoba],[DozvoljenoPusenje],[KaficID],[PozicijaX],[PozicijaY],[Slobodan]) 
+VALUES (5,1,1,0,4,1);
+
+INSERT INTO [Kafic].[dbo].[Stolovi]([BrojOsoba],[DozvoljenoPusenje],[KaficID],[PozicijaX],[PozicijaY],[Slobodan]) 
+VALUES (5,1,1,1,1,1);
+
+INSERT INTO [Kafic].[dbo].[Stolovi]([BrojOsoba],[DozvoljenoPusenje],[KaficID],[PozicijaX],[PozicijaY],[Slobodan]) 
+VALUES (2,1,1,1,3,1);
+
+INSERT INTO [Kafic].[dbo].[Stolovi]([BrojOsoba],[DozvoljenoPusenje],[KaficID],[PozicijaX],[PozicijaY],[Slobodan]) 
+VALUES (4,1,1,2,0,1);
+
+INSERT INTO [Kafic].[dbo].[Stolovi]([BrojOsoba],[DozvoljenoPusenje],[KaficID],[PozicijaX],[PozicijaY],[Slobodan]) 
+VALUES (4,1,1,2,2,1);
+
+INSERT INTO [Kafic].[dbo].[Stolovi]([BrojOsoba],[DozvoljenoPusenje],[KaficID],[PozicijaX],[PozicijaY],[Slobodan]) 
+VALUES (4,1,1,2,4,1);
+
+INSERT INTO [Kafic].[dbo].[Stolovi]([BrojOsoba],[DozvoljenoPusenje],[KaficID],[PozicijaX],[PozicijaY],[Slobodan]) 
+VALUES (4,1,1,3,1,1);
+
+INSERT INTO [Kafic].[dbo].[Stolovi]([BrojOsoba],[DozvoljenoPusenje],[KaficID],[PozicijaX],[PozicijaY],[Slobodan]) 
+VALUES (6,1,1,3,3,1);
+
+INSERT INTO [Kafic].[dbo].[Stolovi]([BrojOsoba],[DozvoljenoPusenje],[KaficID],[PozicijaX],[PozicijaY],[Slobodan]) 
+VALUES (6,1,1,4,0,1);
+
+INSERT INTO [Kafic].[dbo].[Stolovi]([BrojOsoba],[DozvoljenoPusenje],[KaficID],[PozicijaX],[PozicijaY],[Slobodan]) 
+VALUES (5,0,1,4,2,1);
+
+INSERT INTO [Kafic].[dbo].[Stolovi]([BrojOsoba],[DozvoljenoPusenje],[KaficID],[PozicijaX],[PozicijaY],[Slobodan]) 
+VALUES (5,0,1,4,4,1);
+
+INSERT INTO [Kafic].[dbo].[Stolovi]([BrojOsoba],[DozvoljenoPusenje],[KaficID],[PozicijaX],[PozicijaY],[Slobodan]) 
+VALUES (4,1,2,0,0,1);
+
+INSERT INTO [Kafic].[dbo].[Stolovi]([BrojOsoba],[DozvoljenoPusenje],[KaficID],[PozicijaX],[PozicijaY],[Slobodan]) 
+VALUES (5,1,2,0,1,1);
+
+INSERT INTO [Kafic].[dbo].[Stolovi]([BrojOsoba],[DozvoljenoPusenje],[KaficID],[PozicijaX],[PozicijaY],[Slobodan]) 
+VALUES (5,1,2,0,2,1);
+
+INSERT INTO [Kafic].[dbo].[Stolovi]([BrojOsoba],[DozvoljenoPusenje],[KaficID],[PozicijaX],[PozicijaY],[Slobodan]) 
+VALUES (5,1,2,1,4,1);
+
+INSERT INTO [Kafic].[dbo].[Stolovi]([BrojOsoba],[DozvoljenoPusenje],[KaficID],[PozicijaX],[PozicijaY],[Slobodan]) 
+VALUES (5,1,2,1,5,1);
+
+INSERT INTO [Kafic].[dbo].[Stolovi]([BrojOsoba],[DozvoljenoPusenje],[KaficID],[PozicijaX],[PozicijaY],[Slobodan]) 
+VALUES (5,1,2,1,6,1);
+
+INSERT INTO [Kafic].[dbo].[Stolovi]([BrojOsoba],[DozvoljenoPusenje],[KaficID],[PozicijaX],[PozicijaY],[Slobodan]) 
+VALUES (4,0,2,2,0,1);
+
+INSERT INTO [Kafic].[dbo].[Stolovi]([BrojOsoba],[DozvoljenoPusenje],[KaficID],[PozicijaX],[PozicijaY],[Slobodan]) 
+VALUES (4,0,2,2,2,1);
+
+INSERT INTO [Kafic].[dbo].[Stolovi]([BrojOsoba],[DozvoljenoPusenje],[KaficID],[PozicijaX],[PozicijaY],[Slobodan]) 
+VALUES (4,0,2,3,0,1);
+
+INSERT INTO [Kafic].[dbo].[Stolovi]([BrojOsoba],[DozvoljenoPusenje],[KaficID],[PozicijaX],[PozicijaY],[Slobodan]) 
+VALUES (4,0,2,3,2,1);
+
+INSERT INTO [Kafic].[dbo].[Stolovi]([BrojOsoba],[DozvoljenoPusenje],[KaficID],[PozicijaX],[PozicijaY],[Slobodan]) 
+VALUES (4,0,2,3,3,1);
+
+INSERT INTO [Kafic].[dbo].[Stolovi]([BrojOsoba],[DozvoljenoPusenje],[KaficID],[PozicijaX],[PozicijaY],[Slobodan]) 
+VALUES (4,0,2,3,4,1);
+
+INSERT INTO [Kafic].[dbo].[Stolovi]([BrojOsoba],[DozvoljenoPusenje],[KaficID],[PozicijaX],[PozicijaY],[Slobodan]) 
+VALUES (4,0,2,3,6,1);
+
+INSERT INTO [Kafic].[dbo].[Stolovi]([BrojOsoba],[DozvoljenoPusenje],[KaficID],[PozicijaX],[PozicijaY],[Slobodan]) 
+VALUES (4,0,2,3,7,1);
+
+INSERT INTO [Kafic].[dbo].[Stolovi]([BrojOsoba],[DozvoljenoPusenje],[KaficID],[PozicijaX],[PozicijaY],[Slobodan]) 
+VALUES (4,1,2,4,0,1);
+
+INSERT INTO [Kafic].[dbo].[Stolovi]([BrojOsoba],[DozvoljenoPusenje],[KaficID],[PozicijaX],[PozicijaY],[Slobodan]) 
+VALUES (4,1,2,4,7,1);
+
+INSERT INTO [Kafic].[dbo].[Stolovi]([BrojOsoba],[DozvoljenoPusenje],[KaficID],[PozicijaX],[PozicijaY],[Slobodan]) 
+VALUES (4,1,2,5,2,1);
+
+INSERT INTO [Kafic].[dbo].[Stolovi]([BrojOsoba],[DozvoljenoPusenje],[KaficID],[PozicijaX],[PozicijaY],[Slobodan]) 
+VALUES (4,1,2,5,4,1);
+
+INSERT INTO [Kafic].[dbo].[Stolovi]([BrojOsoba],[DozvoljenoPusenje],[KaficID],[PozicijaX],[PozicijaY],[Slobodan]) 
+VALUES (4,1,2,5,5,1);
+
+INSERT INTO [Kafic].[dbo].[Stolovi]([BrojOsoba],[DozvoljenoPusenje],[KaficID],[PozicijaX],[PozicijaY],[Slobodan]) 
+VALUES (4,1,2,5,7,1);
+
+INSERT INTO [Kafic].[dbo].[Stolovi]([BrojOsoba],[DozvoljenoPusenje],[KaficID],[PozicijaX],[PozicijaY],[Slobodan]) 
+VALUES (4,1,2,6,0,1);
+
+INSERT INTO [Kafic].[dbo].[Stolovi]([BrojOsoba],[DozvoljenoPusenje],[KaficID],[PozicijaX],[PozicijaY],[Slobodan]) 
+VALUES (4,1,2,6,2,1);
+
+INSERT INTO [Kafic].[dbo].[Stolovi]([BrojOsoba],[DozvoljenoPusenje],[KaficID],[PozicijaX],[PozicijaY],[Slobodan]) 
+VALUES (4,1,2,6,4,1);
+
+INSERT INTO [Kafic].[dbo].[Stolovi]([BrojOsoba],[DozvoljenoPusenje],[KaficID],[PozicijaX],[PozicijaY],[Slobodan]) 
+VALUES (4,1,2,6,5,1);
+
+INSERT INTO [Kafic].[dbo].[Stolovi]([BrojOsoba],[DozvoljenoPusenje],[KaficID],[PozicijaX],[PozicijaY],[Slobodan]) 
+VALUES (4,1,2,7,0,1);
+
+INSERT INTO [Kafic].[dbo].[Stolovi]([BrojOsoba],[DozvoljenoPusenje],[KaficID],[PozicijaX],[PozicijaY],[Slobodan]) 
+VALUES (4,1,2,7,1,1);
+
+INSERT INTO [Kafic].[dbo].[Stolovi]([BrojOsoba],[DozvoljenoPusenje],[KaficID],[PozicijaX],[PozicijaY],[Slobodan]) 
+VALUES (4,1,2,7,2,1);
+
+INSERT INTO [Kafic].[dbo].[Stolovi]([BrojOsoba],[DozvoljenoPusenje],[KaficID],[PozicijaX],[PozicijaY],[Slobodan]) 
+VALUES (4,1,2,7,4,1);
+
+INSERT INTO [Kafic].[dbo].[Stolovi]([BrojOsoba],[DozvoljenoPusenje],[KaficID],[PozicijaX],[PozicijaY],[Slobodan]) 
+VALUES (4,1,2,7,5,1);
+
+INSERT INTO [Kafic].[dbo].[Stolovi]([BrojOsoba],[DozvoljenoPusenje],[KaficID],[PozicijaX],[PozicijaY],[Slobodan]) 
+VALUES (4,1,2,7,7,1);
+

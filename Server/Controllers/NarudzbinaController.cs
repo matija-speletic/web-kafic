@@ -26,7 +26,7 @@ namespace KaficServer.Controllers
         [HttpPut]
         public async Task<ActionResult> DodajNapojnicu(int idNarudzbine, int napojnica)
         {
-            if (idNarudzbine < 0)
+            if (idNarudzbine < 0 || !Context.Narudzbine.Any(n => n.ID == idNarudzbine))
             {
                 return BadRequest("ID nije validan");
             }
@@ -76,7 +76,9 @@ namespace KaficServer.Controllers
                 {
                     return BadRequest("Sto koji zahtevate je trenutno zauzet");
                 }
-                Konobar konobar = await Context.Konobari.Where(k => k.Nadimak == nadimakKonobara && k.Kafic.Naziv == nazivKafica).FirstOrDefaultAsync();
+                Konobar konobar = await Context.Konobari
+                    .Where(k => k.Nadimak == nadimakKonobara && k.Kafic.Naziv == nazivKafica)
+                    .FirstOrDefaultAsync();
                 if (konobar == null)
                 {
 
@@ -121,9 +123,13 @@ namespace KaficServer.Controllers
         [HttpPut]
         public async Task<ActionResult> IzvrsiNarudzbinu(int idNarudzbine, int idStola)
         {
-            if (idNarudzbine <= 0)
+            if (idNarudzbine <= 0 || !Context.Narudzbine.Any(n => n.ID == idNarudzbine))
             {
-                return BadRequest("ID nije validan");
+                return BadRequest("ID narudzbine nije validan");
+            }
+            if (idStola <= 0 || !Context.Stolovi.Any(s => s.ID == idStola))
+            {
+                return BadRequest("ID stola nije validan");
             }
             try
             {
@@ -154,9 +160,13 @@ namespace KaficServer.Controllers
         [HttpDelete]
         public async Task<ActionResult> ObrisiNarudzbinu(int idNarudzbine, int idStola)
         {
-            if (idNarudzbine <= 0)
+            if (idNarudzbine <= 0 || !Context.Narudzbine.Any(n => n.ID == idNarudzbine))
             {
-                return BadRequest("ID nije validan");
+                return BadRequest("ID narudzbine nije validan");
+            }
+            if (idStola <= 0 || !Context.Stolovi.Any(s => s.ID == idStola))
+            {
+                return BadRequest("ID stola nije validan");
             }
             try
             {
@@ -191,6 +201,10 @@ namespace KaficServer.Controllers
         {
             try
             {
+                if (idStola <= 0 || !Context.Stolovi.Any(s => s.ID == idStola))
+                {
+                    return BadRequest("ID stola nije validan");
+                }
                 var narudzbine = Context.Narudzbine
                 .Where(p => p.Izvrsena == false)
                 .Include(p => p.Konobar)

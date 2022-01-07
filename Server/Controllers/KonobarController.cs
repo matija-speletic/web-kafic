@@ -26,6 +26,11 @@ namespace KaficServer.Controllers
         {
             try
             {
+                if (idKafica < 0 || !Context.Kafici.Any(k => k.ID == idKafica))
+                {
+                    return BadRequest("Kafic ne postoji");
+                }
+
                 return (Ok(
                     await Context.Konobari
                     .Where(k => k.Kafic.ID == idKafica)
@@ -51,6 +56,11 @@ namespace KaficServer.Controllers
         {
             try
             {
+                if (idKafica < 0 || !Context.Kafici.Any(k => k.ID == idKafica))
+                {
+                    return BadRequest("Kafic ne postoji");
+                }
+
                 var narudzbineCena = Context.Narudzbine //narudzbina zajedno sa ukupnom cenom
                 .Where(n => n.Vreme.Date == datum.Date)
                 .Join(

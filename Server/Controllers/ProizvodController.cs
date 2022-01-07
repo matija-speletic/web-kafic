@@ -61,7 +61,7 @@ namespace KaficServer.Controllers
             {
                 return BadRequest("Kolicina nije validna");
             }
-            if (jedinica != null && !System.Text.RegularExpressions.Regex.IsMatch(jedinica, "ml|gr|kom|l"))//eventualno dodaj komad
+            if (jedinica != null && !System.Text.RegularExpressions.Regex.IsMatch(jedinica, "ml|gr|kom|l"))
             {
                 return BadRequest("Jedinica nije validna");
             }
@@ -98,7 +98,7 @@ namespace KaficServer.Controllers
         [HttpGet]
         public async Task<ActionResult> PreuzmiProizvode(int idKategorije)
         {
-            if (idKategorije < 0)
+            if (idKategorije < 0 || !Context.Kategorije.Any(k => k.ID == idKategorije))
             {
                 return BadRequest("ID kategorije nije validan");
             }
@@ -133,7 +133,7 @@ namespace KaficServer.Controllers
         [HttpDelete]
         public async Task<ActionResult> ObrisiProizvod(int idProizvoda)
         {
-            if (idProizvoda < 0)
+            if (idProizvoda < 0 || !Context.Proizvodi.Any(p => p.ID == idProizvoda))
             {
                 return BadRequest("ID nije validan");
             }
