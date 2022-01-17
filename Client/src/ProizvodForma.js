@@ -198,9 +198,11 @@ export class ProizvodForma {
                 if (s.ok) {
                     alert("Proizvod je uspesno dodat!");
                     s.json().then(idDodatog => {
-                        let noviProizvod = new Proizvod(idDodatog, naziv, parseInt(cena), kategorijaID, kolicina, jedinica, 0, opis);
-                        //console.log(this.listaProizvoda)
-                        noviProizvod.prikaziProizvod(false, this.prikaziProizvod, this.listaProizvoda);
+                        if (this.container.querySelector('.kategorija').value == kategorijaID) {
+                            let noviProizvod = new Proizvod(idDodatog, naziv, parseInt(cena), kategorijaID, kolicina, jedinica, 0, opis);
+                            //console.log(this.listaProizvoda)
+                            noviProizvod.prikaziProizvod(false, this.prikaziProizvod, this.listaProizvoda);
+                        }
                     })
                 }
                 else
