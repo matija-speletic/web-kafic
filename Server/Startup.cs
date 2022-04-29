@@ -39,7 +39,7 @@ namespace KaficServer
             {
                 options.AddPolicy("CORS", builder =>
                  {
-                     builder.WithOrigins(new string[]
+                     builder/*.WithOrigins(new string[]
                      {
                         "http://localhost:8080",
                         "https://localhost:8080",
@@ -49,7 +49,8 @@ namespace KaficServer
                         "https://localhost:5500",
                         "http://127.0.0.1:5500",
                         "https://127.0.0.1:5500"
-                     })
+                     })*/
+                     .AllowAnyOrigin()
                      .AllowAnyHeader()
                      .AllowAnyMethod();
                  });

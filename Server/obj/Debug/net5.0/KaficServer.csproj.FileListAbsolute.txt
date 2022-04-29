@@ -127,7 +127,6 @@ F:\Education\WEB\Projekat\server\bin\Debug\net5.0\KaficServer.deps.json
 F:\Education\WEB\Projekat\server\bin\Debug\net5.0\KaficServer.runtimeconfig.json
 F:\Education\WEB\Projekat\server\bin\Debug\net5.0\KaficServer.runtimeconfig.dev.json
 F:\Education\WEB\Projekat\server\bin\Debug\net5.0\KaficServer.dll
-F:\Education\WEB\Projekat\server\bin\Debug\net5.0\ref\KaficServer.dll
 F:\Education\WEB\Projekat\server\bin\Debug\net5.0\KaficServer.pdb
 F:\Education\WEB\Projekat\server\bin\Debug\net5.0\Humanizer.dll
 F:\Education\WEB\Projekat\server\bin\Debug\net5.0\Microsoft.Data.SqlClient.dll
@@ -173,7 +172,6 @@ F:\Education\WEB\Projekat\server\obj\Debug\net5.0\KaficServer.csproj.CoreCompile
 F:\Education\WEB\Projekat\server\obj\Debug\net5.0\KaficServer.MvcApplicationPartsAssemblyInfo.cs
 F:\Education\WEB\Projekat\server\obj\Debug\net5.0\KaficServer.MvcApplicationPartsAssemblyInfo.cache
 F:\Education\WEB\Projekat\server\obj\Debug\net5.0\staticwebassets\KaficServer.StaticWebAssets.Manifest.cache
-F:\Education\WEB\Projekat\server\obj\Debug\net5.0\staticwebassets\KaficServer.StaticWebAssets.xml
 F:\Education\WEB\Projekat\server\obj\Debug\net5.0\scopedcss\bundle\KaficServer.styles.css
 F:\Education\WEB\Projekat\server\obj\Debug\net5.0\KaficServer.RazorTargetAssemblyInfo.cache
 F:\Education\WEB\Projekat\server\obj\Debug\net5.0\KaficServer.csproj.CopyComplete
@@ -181,3 +179,4 @@ F:\Education\WEB\Projekat\server\obj\Debug\net5.0\KaficServer.dll
 F:\Education\WEB\Projekat\server\obj\Debug\net5.0\ref\KaficServer.dll
 F:\Education\WEB\Projekat\server\obj\Debug\net5.0\KaficServer.pdb
 F:\Education\WEB\Projekat\server\obj\Debug\net5.0\KaficServer.genruntimeconfig.cache
+F:\Education\WEB\Projekat\server\obj\Debug\net5.0\refint\KaficServer.dll
