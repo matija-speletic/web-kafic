@@ -2,7 +2,7 @@ import { Kafic } from "./Kafic.js";
 
 let listaKafica = [];
 
-fetch("https://localhost:5001/Kafic/PreuzmiKafice", {
+fetch("https://192.168.0.13:5001/Kafic/PreuzmiKafice", {
     method: "GET"
 }).then(s => {
     if (s.ok) {

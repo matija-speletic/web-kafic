@@ -91,7 +91,7 @@ export class Statistika {
     }
 
     ucitajKafice(kaficSelect) {
-        fetch("https://localhost:5001/Kafic/PreuzmiKafice", {
+        fetch("https://192.168.0.13:5001/Kafic/PreuzmiKafice", {
             method: "GET"
         }).then(s => {
             if (s.ok) {

@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "tP2DN2nTl9Xf5n71EUkB43HOa62v2lkqdwPgznpgZpNbGdyhdel5LGmeiKAUsWKnIeb+kQlZylno7TKzhTKCbQ==",
+  "dgSpecHash": "84l2w0jjCIH+uFGAVDvaSwWn7AkwS/LtWSSLIzZyEremZcC5fU64nX6s6fgKyVBeq3tbf9R7rq3ioxFksbBZ+A==",
   "success": true,
-  "projectFilePath": "F:\\Education\\WEB\\Projekat\\server\\KaficServer.csproj",
+  "projectFilePath": "F:\\Education\\zTreca godina\\WEB\\Projekat\\Server\\KaficServer.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Matija\\.nuget\\packages\\humanizer.core\\2.8.26\\humanizer.core.2.8.26.nupkg.sha512",
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder\\microsoft.csharp\\4.5.0\\microsoft.csharp.4.5.0.nupkg.sha512",

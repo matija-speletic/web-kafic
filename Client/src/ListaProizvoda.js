@@ -45,7 +45,7 @@ export class ListaProizvoda {
 
     ucitajKategorije(selectBox, saKontrolama = true, naKlik = undefined, naUcitavanje = undefined) {
 
-        fetch("https://localhost:5001/Proizvod/PreuzmiKategorije", {
+        fetch("https://192.168.0.13:5001/Proizvod/PreuzmiKategorije", {
             method: "GET"
         }).then(s => {
             if (s.ok) {
@@ -74,7 +74,7 @@ export class ListaProizvoda {
     }
 
     ucitajProizvode(kategorijaID, saKontrolama = true, naKlik = undefined) {
-        fetch("https://localhost:5001/Proizvod/PreuzmiProizvode/" + kategorijaID, {
+        fetch("https://192.168.0.13:5001/Proizvod/PreuzmiProizvode/" + kategorijaID, {
             method: "GET"
         }).then(s => {
             if (s.ok) {
@@ -114,7 +114,7 @@ export class ListaProizvoda {
     prikaziProizvode(saKontrolama = true, naKlik = undefined) {
         this.proizvodi.forEach(proizvod => {
             proizvod.prikaziProizvod(saKontrolama, naKlik, this);
-            
+
         });
     }
 

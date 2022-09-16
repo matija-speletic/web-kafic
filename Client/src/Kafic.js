@@ -88,7 +88,7 @@ export class Kafic {
 
         this.crtajKontrole(divZaFormu);
 
-        fetch("https://localhost:5001/Kafic/PreuzmiStolove/" + this.id, {
+        fetch("https://192.168.0.13:5001/Kafic/PreuzmiStolove/" + this.id, {
             method: "GET"
         }).then(s => {
             if (s.ok) {
@@ -165,7 +165,7 @@ export class Kafic {
         dugmeNazad.className = "dugme";
         dugmeNazad.innerHTML = "Nazad";
         dugmeNazad.onclick = () => {
-            window.open("http://127.0.0.1:5500/Client/pocetniMeniPage.html", '_self');
+            window.open("http://192.168.0.13:5500/Client/pocetniMeniPage.html", '_self');
         }
         okvirDugmica.appendChild(dugmeNazad);
     }
@@ -175,7 +175,7 @@ export class Kafic {
             alert("Morate selektovati zauzet sto!");
             return;
         }
-        fetch("https://localhost:5001/Narudzbina/IzvrsiNarudzbinu/" + this.selektovanaNarudzbinaID + "/" + this.selektovaniSto.id, {
+        fetch("https://192.168.0.13:5001/Narudzbina/IzvrsiNarudzbinu/" + this.selektovanaNarudzbinaID + "/" + this.selektovaniSto.id, {
             method: "PUT"
         }).then(s => {
             if (s.ok) {
@@ -194,7 +194,7 @@ export class Kafic {
             alert("Morate selektovati zauzet sto!");
             return;
         }
-        fetch("https://localhost:5001/Narudzbina/ObrisiNarudzbinu/" + this.selektovanaNarudzbinaID + "/" + this.selektovaniSto.id, {
+        fetch("https://192.168.0.13:5001/Narudzbina/ObrisiNarudzbinu/" + this.selektovanaNarudzbinaID + "/" + this.selektovaniSto.id, {
             method: "DELETE"
         }).then(s => {
             if (s.ok) {
@@ -214,7 +214,7 @@ export class Kafic {
             return;
         }
         let nadimakKonobara = this.container.querySelector(".konobar_nadimak").value;
-        let stranicaZaDodavanje = "http://127.0.0.1:5500/Client/orderPage.html?nazivKafica=" + this.naziv + "&x="
+        let stranicaZaDodavanje = "http://192.168.0.13:5500/Client/orderPage.html?nazivKafica=" + this.naziv + "&x="
             + this.selektovaniSto.x + "&y=" + this.selektovaniSto.y;
         if (nadimakKonobara !== "")
             stranicaZaDodavanje += "&nadimakKonobara=" + nadimakKonobara;
@@ -235,7 +235,7 @@ export class Kafic {
     }
 
     ucitajKonobare(konobarSelect) {
-        fetch("https://localhost:5001/Konobar/PreuzmiKonobare/" + this.id, {
+        fetch("https://192.168.0.13:5001/Konobar/PreuzmiKonobare/" + this.id, {
             method: "GET"
         }).then(s => {
             if (s.ok) {

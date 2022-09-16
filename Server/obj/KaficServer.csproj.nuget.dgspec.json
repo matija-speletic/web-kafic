@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "F:\\Education\\WEB\\Projekat\\server\\KaficServer.csproj": {}
+    "F:\\Education\\zTreca godina\\WEB\\Projekat\\Server\\KaficServer.csproj": {}
   },
   "projects": {
-    "F:\\Education\\WEB\\Projekat\\server\\KaficServer.csproj": {
+    "F:\\Education\\zTreca godina\\WEB\\Projekat\\Server\\KaficServer.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "F:\\Education\\WEB\\Projekat\\server\\KaficServer.csproj",
+        "projectUniqueName": "F:\\Education\\zTreca godina\\WEB\\Projekat\\Server\\KaficServer.csproj",
         "projectName": "KaficServer",
-        "projectPath": "F:\\Education\\WEB\\Projekat\\server\\KaficServer.csproj",
+        "projectPath": "F:\\Education\\zTreca godina\\WEB\\Projekat\\Server\\KaficServer.csproj",
         "packagesPath": "C:\\Users\\Matija\\.nuget\\packages\\",
-        "outputPath": "F:\\Education\\WEB\\Projekat\\server\\obj\\",
+        "outputPath": "F:\\Education\\zTreca godina\\WEB\\Projekat\\Server\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"

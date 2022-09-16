@@ -89,7 +89,7 @@ export class NarudzbinaForma {
         const stoY = parseInt(params.y ?? -1);
         const nazivKafica = params.nazivKafica ?? "";
         const nadimakKonobara = params.nadimakKonobara ?? null;
-        let postRequest = encodeURI("https://localhost:5001/Narudzbina/DodajNarudzbinu/"
+        let postRequest = encodeURI("https://192.168.0.13:5001/Narudzbina/DodajNarudzbinu/"
             + nazivKafica + "/" + stoX + "/" + stoY + "?");
 
         this.listaNarucenih.naruceniProizvodi.forEach((proizvod) => {
@@ -141,7 +141,7 @@ export class NarudzbinaForma {
         dugmeProsledi.innerHTML = "Prosledi";
         dugmeProsledi.addEventListener("click", event => {
             response.json().then(idNarudzbine => {
-                fetch("https://localhost:5001/Narudzbina/DodajNapojnicu/" + idNarudzbine + "/" + iznosNapojnice.value, {
+                fetch("https://192.168.0.13:5001/Narudzbina/DodajNapojnicu/" + idNarudzbine + "/" + iznosNapojnice.value, {
                     method: "PUT"
                 }).then(s => {
                     if (s.ok) {

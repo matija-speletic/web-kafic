@@ -119,7 +119,7 @@ export class ProizvodForma {
         dugmeNazad.className = "dugme";
         dugmeNazad.innerHTML = "Nazad";
         dugmeNazad.onclick = () => {
-            window.open("http://127.0.0.1:5500/Client/pocetniMeniPage.html", '_self');
+            window.open("http://192.168.0.13:5500/Client/pocetniMeniPage.html", '_self');
         }
         okvirDugmica.appendChild(dugmeNazad);
     }
@@ -132,7 +132,7 @@ export class ProizvodForma {
         poljeZaJedinicu.classList.add("jedinica_input");
         spanZaKolicinu.appendChild(poljeZaJedinicu);
 
-        fetch("https://localhost:5001/Proizvod/PreuzmiJedinice", {
+        fetch("https://192.168.0.13:5001/Proizvod/PreuzmiJedinice", {
             method: "GET"
         }).then(s => {
             if (s.ok) {
@@ -191,7 +191,7 @@ export class ProizvodForma {
         let jedinica = this.container.querySelector('.jedinica_input').value;
         let kategorijaID = this.container.querySelector('.kategorija_select').value;
         let opis = this.container.querySelector('textarea').value;
-        let postRequest = `https://localhost:5001/Proizvod/DodajProizvod?naziv=${naziv}&cena=${parseInt(cena)}&kolicina=${kolicina}&jedinica=${jedinica}&opis=${opis}&idKategorije=${kategorijaID}`;
+        let postRequest = `https://192.168.0.13:5001/Proizvod/DodajProizvod?naziv=${naziv}&cena=${parseInt(cena)}&kolicina=${kolicina}&jedinica=${jedinica}&opis=${opis}&idKategorije=${kategorijaID}`;
         postRequest = encodeURI(postRequest);
         fetch(postRequest, { method: "POST" })
             .then(s => {
@@ -234,7 +234,7 @@ export class ProizvodForma {
                     naziv: kategorijaNaziv
                 }
             };
-            fetch("https://localhost:5001/Proizvod/PromeniProizvod", {
+            fetch("https://192.168.0.13:5001/Proizvod/PromeniProizvod", {
                 method: "PUT",
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify(zaSlanje)
@@ -256,7 +256,7 @@ export class ProizvodForma {
     }
 
     obrisiProizvod(idProizvoda) {
-        fetch("https://localhost:5001/Proizvod/ObrisiProizvod/" + idProizvoda, {
+        fetch("https://192.168.0.13:5001/Proizvod/ObrisiProizvod/" + idProizvoda, {
             method: "DELETE"
         }).then(s => {
             if (s.ok) {

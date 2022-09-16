@@ -9,12 +9,12 @@ export class Grafik {
     crtajGrafik() {
 
         let datum = this.container.querySelector("input[type='date']").value;
-        //https://localhost:5001/Konobar/PreuzmiStatistikuKonobara/1/12-29-21
+        //https://192.168.0.13:5001/Konobar/PreuzmiStatistikuKonobara/1/12-29-21
         //console.log(datum);
 
         let idKafica = this.container.querySelector(".kafic").value;
         //console.log(idKafica);
-        fetch("https://localhost:5001/Konobar/PreuzmiStatistikuKonobara/" + idKafica + "/" + datum, {
+        fetch("https://192.168.0.13:5001/Konobar/PreuzmiStatistikuKonobara/" + idKafica + "/" + datum, {
             method: "GET"
         }).then(s => {
             if (s.ok) {

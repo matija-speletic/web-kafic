@@ -46,7 +46,7 @@ export class Sto {
 
     ucitajNarudzbinu(lista) {
         //console.log(lista);
-        fetch("https://localhost:5001/Narudzbina/PreuzmiNarudzbinuSaStola/" + this.id, {
+        fetch("https://192.168.0.13:5001/Narudzbina/PreuzmiNarudzbinuSaStola/" + this.id, {
             method: "GET"
         }).then(s => {
             if (s.ok) {
