@@ -32,12 +32,16 @@ export class Sto {
             stoTD.appendChild(stoDugme);
             //console.log(lista);
             stoDugme.addEventListener("click", () => {
-                if (!this.slobodan)
+                stoDugme.style.backgroundColor = "black";
+                if (!this.slobodan) {
                     this.ucitajNarudzbinu(lista);
+                }
                 else {
                     this.kafic.ocistiKontrole();
                 }
-
+                //console.log(this.kafic.selektovaniSto.container.querySelector(".dugme_sto"))
+                if (this.kafic.selektovaniSto != null)
+                    this.kafic.selektovaniSto.container.querySelector(".dugme_sto").style.backgroundColor = "";
                 this.kafic.selektovaniSto = this;
 
             })
