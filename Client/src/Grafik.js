@@ -1,3 +1,4 @@
+import { ProizvodModal } from "./ProizvodModal.js";
 export class Grafik {
     constructor(container, poljeGrafika) {
         this.poljeGrafika = poljeGrafika;
@@ -26,7 +27,7 @@ export class Grafik {
                 })
             }
             else {
-                alert("Doslo je do greske prilikom ucitavanja statistike!");
+                (new ProizvodModal(document.body)).prikazi(null, "Greška", "Doslo je do greske prilikom ucitavanja statistike!");
             }
         })
     }
@@ -39,7 +40,7 @@ export class Grafik {
             //console.log(selektovani);
         }
         else {
-            //alert("Morate izabrati bar jedan podatak!");
+            //(new ProizvodModal(document.body)).prikazi(null,"Greška","Morate izabrati bar jedan podatak!");
             return;
         }
 

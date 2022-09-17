@@ -1,3 +1,5 @@
+import { ProizvodModal } from "./ProizvodModal.js";
+
 export class Proizvod {
     constructor(id, naziv = "", cena = 0, kategorija = -1, kolicina = 0, jedinica = "", brojIzabranih = 0, opis = "") {
         this.id = id;
@@ -24,7 +26,8 @@ export class Proizvod {
         let info = this.naziv + "\nKolicina: " + this.kolicina + this.jedinica;
         if (this.opis != null && this.opis != "")
             info += "\n\n" + this.opis;
-        alert(info);
+        (new ProizvodModal(document.body)).prikazi(this);
+        //(new ProizvodModal(document.body)).prikazi(null,"Greška",info);
     }
 
     prikaziProizvod(saKontrolama = true, naKlik = undefined, lista) {
@@ -103,17 +106,17 @@ export class Proizvod {
 
     prikaziProizvodShort(lista) {
         let stavkaListe = document.createElement("li");
-            stavkaListe.className = "stavka_menija";
-            lista.naruceniContainer.appendChild(stavkaListe);
+        stavkaListe.className = "stavka_menija";
+        lista.naruceniContainer.appendChild(stavkaListe);
 
-            let nazivStavke = document.createElement("span");
-            nazivStavke.innerHTML = this.naziv;
-            stavkaListe.appendChild(nazivStavke);
+        let nazivStavke = document.createElement("span");
+        nazivStavke.innerHTML = this.naziv;
+        stavkaListe.appendChild(nazivStavke);
 
-            let cenaStavke = document.createElement("span");
-            cenaStavke.className = "cena";
-            cenaStavke.innerHTML = this.cena + ".00 x " + this.brojIzabranih;
-            stavkaListe.appendChild(cenaStavke);
+        let cenaStavke = document.createElement("span");
+        cenaStavke.className = "cena";
+        cenaStavke.innerHTML = this.cena + ".00 x " + this.brojIzabranih;
+        stavkaListe.appendChild(cenaStavke);
     }
 
 }

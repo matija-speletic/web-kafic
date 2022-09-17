@@ -1,5 +1,6 @@
 import { Sto } from "./Sto.js";
 import { ListaNarucenih } from "./ListaNarucenih.js";
+import { ProizvodModal } from "./ProizvodModal.js";
 
 export class Kafic {
     constructor(id, naziv = "", adresa = "", dimenzijaX = 0, dimenzijaY = 0) {
@@ -194,45 +195,45 @@ export class Kafic {
 
     izvrsiNarudzbinu() {
         if (this.selektovanaNarudzbinaID < 0) {
-            alert("Morate selektovati zauzet sto!");
+            (new ProizvodModal(document.body)).prikazi(null, "Upozorenje", "Morate selektovati zauzet sto!");
             return;
         }
         fetch("https://192.168.0.13:5001/Narudzbina/IzvrsiNarudzbinu/" + this.selektovanaNarudzbinaID + "/" + this.selektovaniSto.id, {
             method: "PUT"
         }).then(s => {
             if (s.ok) {
-                alert("Narudzbina uspesno izvrsena!");
+                (new ProizvodModal(document.body)).prikazi(null, "Obaveštenje", "Narudzbina uspesno izvrsena!");
                 //window.location.reload();
                 this.selektovaniSto.promeniStanje();
                 this.ocistiKontrole();
             }
             else
-                alert("Doslo je do greske!");
+                (new ProizvodModal(document.body)).prikazi(null, "Greška", "Doslo je do greske!");
         });
     }
 
     obrisiNarudzbinu() {
         if (this.selektovanaNarudzbinaID < 0) {
-            alert("Morate selektovati zauzet sto!");
+            (new ProizvodModal(document.body)).prikazi(null, "Upozorenje", "Morate selektovati zauzet sto!");
             return;
         }
         fetch("https://192.168.0.13:5001/Narudzbina/ObrisiNarudzbinu/" + this.selektovanaNarudzbinaID + "/" + this.selektovaniSto.id, {
             method: "DELETE"
         }).then(s => {
             if (s.ok) {
-                alert("Narudzbina uspesno obrisana!");
+                (new ProizvodModal(document.body)).prikazi(null, "Greška", "Narudzbina uspesno obrisana!");
                 //window.location.reload();
                 this.selektovaniSto.promeniStanje();
                 this.ocistiKontrole();
             }
             else
-                alert("Doslo je do greske!");
+                (new ProizvodModal(document.body)).prikazi(null, "Greška", "Doslo je do greske!");
         });
     }
 
     dodajNarudzbinu() {
         if (this.selektovaniSto == null || this.selektovaniSto.slobodan == false) {
-            alert("Morate izabrati slobodan sto");
+            (new ProizvodModal(document.body)).prikazi(null, "Upozorenje", "Morate izabrati slobodan sto");
             return;
         }
         let nadimakKonobara = this.container.querySelector(".konobar_nadimak").value;
@@ -273,7 +274,7 @@ export class Kafic {
                 })
             }
             else {
-                alert("Doslo je do greske!");
+                (new ProizvodModal(document.body)).prikazi(null, "Greška", "Doslo je do greske!");
             }
         })
     }

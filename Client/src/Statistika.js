@@ -1,4 +1,5 @@
 import { Grafik } from "./Grafik.js";
+import { ProizvodModal } from "./ProizvodModal.js";
 
 export class Statistika {
     constructor() {
@@ -106,7 +107,7 @@ export class Statistika {
                 });
             }
             else {
-                alert("Doslo je do greske prilikom ucitavanja kafica!");
+                (new ProizvodModal(document.body)).prikazi(null, "Greška", "Doslo je do greske prilikom ucitavanja kafica!");
             }
         });
     }

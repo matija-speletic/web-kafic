@@ -1,5 +1,6 @@
 import { ListaProizvoda } from "./ListaProizvoda.js";
 import { Proizvod } from "./Proizvod.js";
+import { ProizvodModal } from "./ProizvodModal.js";
 
 export class ProizvodForma {
     constructor() {
@@ -108,7 +109,7 @@ export class ProizvodForma {
         dugmeUkloni.innerHTML = "Ukloni stavku";
         dugmeUkloni.addEventListener("click", event => {
             if (this.listaProizvoda.selektovaniProizvod == null || this.listaProizvoda.selektovaniProizvod == undefined)
-                alert("Morate selektovati proizvod!");
+                (new ProizvodModal(document.body)).prikazi(null, "Upozorenje", "Morate selektovati proizvod!");
             else {
                 this.obrisiProizvod(this.listaProizvoda.selektovaniProizvod.id);
             }
@@ -196,7 +197,7 @@ export class ProizvodForma {
         fetch(postRequest, { method: "POST" })
             .then(s => {
                 if (s.ok) {
-                    alert("Proizvod je uspesno dodat!");
+                    (new ProizvodModal(document.body)).prikazi(null, "Obaveštenje", "Proizvod je uspesno dodat!");
                     s.json().then(idDodatog => {
                         if (this.container.querySelector('.kategorija').value == kategorijaID) {
                             let noviProizvod = new Proizvod(idDodatog, naziv, parseInt(cena), kategorijaID, kolicina, jedinica, 0, opis);
@@ -206,13 +207,13 @@ export class ProizvodForma {
                     })
                 }
                 else
-                    alert("Doslo je do greske!");
+                    (new ProizvodModal(document.body)).prikazi(null, "Greška", "Doslo je do greske!");
             });
     }
 
     izmeniProizvod(selektovaniProizvod, listaKategorija) {
         if (selektovaniProizvod == null || selektovaniProizvod == undefined) {
-            alert("Morate prethodno selektovati neki proizvod!");
+            (new ProizvodModal(document.body)).prikazi(null, "Upozorenje", "Morate prethodno selektovati neki proizvod!");
         }
         else {
             let naziv = this.container.querySelector('input[type="text"]').value;
@@ -240,7 +241,7 @@ export class ProizvodForma {
                 body: JSON.stringify(zaSlanje)
             }).then(s => {
                 if (s.ok) {
-                    alert("Proizvod uspesno izmenjen!");
+                    (new ProizvodModal(document.body)).prikazi(null, "Obaveštenje", "Proizvod uspesno izmenjen!");
                     //window.location.reload();
                     //isprazniListu i prikaziProizvode
                     this.listaProizvoda.isprazniListu();
@@ -248,7 +249,7 @@ export class ProizvodForma {
                     this.container.querySelector('.kategorija').value = kategorijaID;
                 }
                 else
-                    alert("Doslo je do greske!");
+                    (new ProizvodModal(document.body)).prikazi(null, "Greška", "Doslo je do greske!");
             });
 
         }
@@ -260,14 +261,14 @@ export class ProizvodForma {
             method: "DELETE"
         }).then(s => {
             if (s.ok) {
-                alert("Proizvod je uspesno obrisan!");
+                (new ProizvodModal(document.body)).prikazi(null, "Obaveštenje", "Proizvod je uspesno obrisan!");
                 //window.location.reload();
                 let proizvod = this.listaProizvoda.proizvodi
                     .find(p => p.id == idProizvoda);
                 this.listaProizvoda.listaContainer.removeChild(proizvod.container);
             }
             else
-                alert("Doslo je do greske prilikom brisanja!");
+                (new ProizvodModal(document.body)).prikazi(null, "Greška", "Doslo je do greske prilikom brisanja!");
         })
     }
 }

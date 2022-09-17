@@ -1,5 +1,6 @@
 import { ListaNarucenih } from "./ListaNarucenih.js";
 import { ListaProizvoda } from "./ListaProizvoda.js";
+import { ProizvodModal } from "./ProizvodModal.js";
 
 export class NarudzbinaForma {
     constructor() {
@@ -80,7 +81,7 @@ export class NarudzbinaForma {
 
     proslediNarudzbinu() {
         if (this.listaNarucenih.naruceniProizvodi.length === 0) {
-            alert("Morate izabrati bar jedan proizvod!");
+            (new ProizvodModal(document.body)).prikazi(null, "Upozorenje", "Morate izabrati bar jedan proizvod!");
             return;
         }
         const urlSearchParams = new URLSearchParams(window.location.search);
@@ -105,17 +106,17 @@ export class NarudzbinaForma {
         let dodatnoUputstvo = document.querySelector(".dodatno_uputstvo").value;
         postRequest += "uputstvo="
             + encodeURI(dodatnoUputstvo);
-        //alert(postRequest);
+        //(new ProizvodModal(document.body)).prikazi(null,"Greška",postRequest);
         this.listaNarucenih.naruceniProizvodi = [];
         fetch(postRequest, { method: "POST" })
             .then(s => {
                 console.log(s);
                 if (s.ok) {
-                    alert("Narudzbina je prosledjena!");
+                    (new ProizvodModal(document.body)).prikazi(null, "Obaveštenje", "Narudzbina je prosledjena!");
                     this.otvoriFormuZaNapojnicu(s);
                 }
                 else
-                    alert("Narudzbina nije uspesno prosledjena!");
+                    (new ProizvodModal(document.body)).prikazi(null, "Greška", "Narudzbina nije uspesno prosledjena!");
             });
     }
 
@@ -145,13 +146,13 @@ export class NarudzbinaForma {
                     method: "PUT"
                 }).then(s => {
                     if (s.ok) {
-                        alert("Napojnica dodata! Hvala!");
+                        (new ProizvodModal(document.body)).prikazi(null, "Obaveštenje", "Napojnica dodata! Hvala!");
                         this.container.innerHTML = "";
                         labelaNapojnica.innerHTML = "Hvala na poverenju!";
                         this.container.appendChild(labelaNapojnica);
                     }
                     else {
-                        alert("Doslo je do greske!")
+                        (new ProizvodModal(document.body)).prikazi(null, "Greška", "Doslo je do greske!")
                     }
                 })
             });
