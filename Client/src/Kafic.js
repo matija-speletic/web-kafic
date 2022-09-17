@@ -13,6 +13,7 @@ export class Kafic {
         this.stolovi = [];
         this.selektovanaNarudzbinaID = -1;
         this.selektovaniSto = null;
+        this.lastUpdate = new Date().toJSON();
     }
 
     crtajKafic(host) {
@@ -95,11 +96,32 @@ export class Kafic {
                 //console.log(s);
                 s.json().then(listaStolova => {
                     //console.log(listaStolova);
-                    this.crtajStolove(listaStolova);
-
+                    this.crtajStolove(listaStolova.stolovi);
+                    this.lastUpdate = listaStolova.vreme.split("+")[0];
+                    getUpdates();
                 });
             }
         })
+        const getUpdates = () => {
+            //console.log(this.lastUpdate)
+            fetch(`https://localhost:5001/Kafic/GetUpdates/${this.id}/${this.lastUpdate}`)
+                .then(s => {
+                    if (s.ok) {
+                        s.json().then(updates => {
+                            if (updates.length > 0) {
+                                updates.forEach(update => {
+                                    this.stolovi.find(s => s.id === update.id).oznaci();
+                                    this.lastUpdate = update.vreme.split("+")[0];
+                                })
+                            }
+                            setTimeout(getUpdates, 2500);
+                        })
+                    }
+                })
+
+
+        }
+
 
 
     }
@@ -255,5 +277,7 @@ export class Kafic {
             }
         })
     }
+
+
 
 }

@@ -20,7 +20,7 @@ namespace KaficServer.Controllers
             Context = context;
         }
 
-        
+
 
         [Route("PreuzmiStolove/{idKafica}")]
         [HttpGet]
@@ -34,9 +34,12 @@ namespace KaficServer.Controllers
                 }
 
                 return Ok(
-                    await Context.Stolovi.
-                    Where(s => s.Kafic.ID == idKafica).
-                    Select(s =>
+                    new
+                    {
+                        vreme = DateTime.Now,
+                        stolovi = await Context.Stolovi.
+                        Where(s => s.Kafic.ID == idKafica).
+                        Select(s =>
                         new
                         {
                             ID = s.ID,
@@ -48,6 +51,7 @@ namespace KaficServer.Controllers
                             Slobodan = s.Slobodan
                         }
                     ).ToListAsync()
+                    }
                 );
             }
             catch (Exception e)
@@ -69,6 +73,31 @@ namespace KaficServer.Controllers
             {
                 return BadRequest("Doslo je do greske: " + e.Message);
             }
+        }
+
+        [Route("GetUpdates/{idKafica}/{lastUpdate}")]
+        [HttpGet]
+        public async Task<ActionResult> GetUpdates(int idKafica, DateTime lastUpdate)
+        {
+            try
+            {
+                if (!Context.Kafici.Any(k => k.ID == idKafica))
+                {
+                    return BadRequest("Kafic ne postoji");
+                }
+
+                return Ok(
+                    await Context.Narudzbine
+                    .Where(n => n.Sto.Kafic.ID == idKafica && n.Vreme > lastUpdate)
+                    .Select(n => new { n.Sto.ID, n.Vreme })
+                    .ToListAsync()
+                );
+            }
+            catch (Exception e)
+            {
+                return BadRequest("Doslo je do greske: " + e.Message);
+            }
+
         }
     }
 }

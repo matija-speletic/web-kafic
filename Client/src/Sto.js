@@ -32,6 +32,7 @@ export class Sto {
             stoTD.appendChild(stoDugme);
             //console.log(lista);
             stoDugme.addEventListener("click", () => {
+                stoDugme.classList.remove("oznacen_sto");
                 stoDugme.style.backgroundColor = "black";
                 if (!this.slobodan) {
                     this.ucitajNarudzbinu(lista);
@@ -92,5 +93,10 @@ export class Sto {
             dugme.classList.add("slobodan_sto");
         }
         this.slobodan = !this.slobodan;
+    }
+
+    oznaci() {
+        this.container.querySelector("button").classList.add("oznacen_sto");
+        this.promeniStanje();
     }
 }
