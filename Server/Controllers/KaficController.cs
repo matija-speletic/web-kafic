@@ -88,7 +88,7 @@ namespace KaficServer.Controllers
 
                 return Ok(
                     await Context.Narudzbine
-                    .Where(n => n.Sto.Kafic.ID == idKafica && n.Vreme > lastUpdate)
+                    .Where(n => n.Sto.Kafic.ID == idKafica && n.Vreme > lastUpdate && n.Izvrsena == false)
                     .Select(n => new { n.Sto.ID, n.Vreme })
                     .ToListAsync()
                 );
